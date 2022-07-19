@@ -1,5 +1,6 @@
 package sg.edu.nus.iss.day12workshop;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,11 @@ public class IndexResource {
     
     @GetMapping(produces = {"text/html"})
     public String index (Model model) {
-        model .addAttribute ("currTime", (new Date()). toString());
+        model.addAttribute ("currTime", (new Date()). toString());
+
+        Calendar cal = Calendar.getInstance();
+        model.addAttribute("currHour", cal.get(Calendar.HOUR_OF_DAY));
+
         return "indexresource";
 
     }

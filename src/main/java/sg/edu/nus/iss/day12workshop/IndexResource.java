@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexResource {
     
     @GetMapping(produces = {"text/html"})
-    public String index (Model model) {
-        model.addAttribute ("currTime", (new Date()). toString());
+    public String index(Model model) {
+        model.addAttribute("currTime", (new Date()).toString());
 
         Calendar cal = Calendar.getInstance();
         model.addAttribute("currHour", cal.get(Calendar.HOUR_OF_DAY));
-
+        
         return "indexresource";
 
     }

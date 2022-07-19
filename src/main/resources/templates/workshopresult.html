@@ -7,6 +7,14 @@
     <title>Workshop Exercise - Result</title>
 </head>
 <body>
-    
+    <table>
+        <tr data-th-each="i: ${cart}">
+            <td>
+                <!-- <span data-th-text="${i}"> -->
+                    <img th:src="@{$('/static/' + i + '.jpg')}" width="150px" height="150px" />
+                <!-- </span> -->
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

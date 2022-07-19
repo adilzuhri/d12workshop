@@ -35,10 +35,12 @@ public class WorkshopController {
         
         }
 
-        for (int 1 = 0; i < 1stInt.size(); i++) {
+        for (int i = 0; i < 1stInt.size(); i++) {
             System.out.print("==> " + 1stInt.get(1));
             System.out.println();
         }
+
+        model.addAttribute("numbers", 1stInt);
 
         return "workshop";
     }

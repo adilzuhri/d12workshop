@@ -11,38 +11,33 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WorkshopController {
 
-    @RequestMapping(path={ "/workshop"})
-    public String Test() {
-        return "workshop";
-    }
-
-    @RequestMapping(path={ "/processNumber"})
+    @RequestMapping(path = { "/processNumber" })
     public String testResults(
-        @RequestParam(name = "inputNumber", defaultValue = "1") Integer unit,
-        Model model) {
-            
-        List<Integer> 1stInt = new ArrayList<>();
+            @RequestParam(name = "inputNumber", defaultValue = "1") Integer unit,
+            Model model) {
+
+        List<Integer> lstInt = new ArrayList<>();
         int loopValue = Integer.parseInt(unit.toString());
 
         int loop = 1;
         while (loop <= loopValue) {
+
             int result = (int) ((Math.random() * loopValue) + 1);
-        
-            if (1stInt.contains(Integer.valueOf(result))) {
-                1stInt.add(Integer.valueOf(result));
+
+            if (!lstInt.contains(Integer.valueOf(result))) {
+                lstInt.add(Integer.valueOf(result));
                 loop++;
             }
-        
         }
 
-        for (int i = 0; i < 1stInt.size(); i++) {
-            System.out.print("==> " + 1stInt.get(1));
+        for (int i = 0; i < lstInt.size(); i++) {
+            System.out.print("==> " + lstInt.get(i));
             System.out.println();
         }
 
-        model.addAttribute("numbers", 1stInt);
+        model.addAttribute("numbers", lstInt);
 
-        return "workshop";
+        return "workshopresult";
     }
 
 }
